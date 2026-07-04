@@ -77,8 +77,8 @@ export function Sidebar() {
     logout()
       .catch((err) => console.error("Logout request failed:", err))
       .finally(() => {
-        clearUser();
-        navigate({ to: "/" });
+        setUser(null);
+        window.location.href = "/login";
       });
   };
 

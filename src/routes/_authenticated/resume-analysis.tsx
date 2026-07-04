@@ -125,7 +125,7 @@ function ResumeAnalysisPage() {
         setActiveProfileId(null);
         setHasResume(false);
         setProfile(null);
-        navigate({ to: "/resume" });
+        window.location.href = "/resume";
       } catch (err) {
         console.error("Failed to delete resume data", err);
         alert("Failed to delete resume data.");
