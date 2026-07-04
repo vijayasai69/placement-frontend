@@ -584,11 +584,14 @@ function SkillGapPage() {
                 </h3>
 
                 <div className="space-y-6">
-                  {selectedRole.learningRecommendations && selectedRole.learningRecommendations.length > 0 ? (
-                    selectedRole.learningRecommendations.map((rec: any, idx: number) => (
+                  {selectedRole.missingSkills && selectedRole.missingSkills.length > 0 ? (
+                    selectedRole.missingSkills.map((missingSkill: string, idx: number) => {
+                      const rec = selectedRole.learningRecommendations?.find((r: any) => r.skill.toLowerCase() === missingSkill.toLowerCase());
+                      
+                      return (
                       <div key={idx} className="bg-slate-50 dark:bg-[#080d1a]/30 border border-slate-200 dark:border-white/5 rounded-xl p-5 space-y-4">
                         <div className="flex justify-between items-center border-b border-slate-300 dark:border-white/10 pb-2">
-                          <span className="text-sm font-bold text-rose-600 dark:text-rose-400 font-display">{rec.skill}</span>
+                          <span className="text-sm font-bold text-rose-600 dark:text-rose-400 font-display">{missingSkill}</span>
                           <span className="text-[10px] bg-rose-100 dark:bg-rose-500/10 text-rose-700 dark:text-rose-400 border border-rose-200 dark:border-rose-500/20 px-2.5 py-0.5 rounded-full font-bold">
                             Missing
                           </span>
@@ -597,19 +600,25 @@ function SkillGapPage() {
                         {/* Resources */}
                         <div className="space-y-2">
                           <span className="text-[10px] font-bold text-slate-400 dark:text-white/40 uppercase tracking-wider block">Recommended resources:</span>
-                          <ul className="space-y-1.5 text-xs text-slate-600 dark:text-white/70 list-disc list-inside font-light mb-3">
-                            {rec.resources && rec.resources.map((res: string, resIdx: number) => (
-                              <li key={resIdx}>{res}</li>
-                            ))}
-                          </ul>
+                          {rec?.resources && rec.resources.length > 0 ? (
+                            <ul className="space-y-1.5 text-xs text-slate-600 dark:text-white/70 list-disc list-inside font-light mb-3">
+                              {rec.resources.map((res: string, resIdx: number) => (
+                                <li key={resIdx}>{res}</li>
+                              ))}
+                            </ul>
+                          ) : (
+                            <p className="text-xs text-slate-500 dark:text-white/50 font-light mb-3">
+                              We recommend checking the official documentation and beginner tutorials for {missingSkill}.
+                            </p>
+                          )}
                           <div className="flex flex-wrap gap-2 mt-2">
-                            <a href={`https://www.youtube.com/results?search_query=${encodeURIComponent(rec.skill + " full course tutorial")}`} target="_blank" rel="noreferrer" className="text-[10px] bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-700 dark:text-white/80 px-2 py-1 rounded transition-colors border border-slate-200 dark:border-white/10">
+                            <a href={`https://www.youtube.com/results?search_query=${encodeURIComponent(missingSkill + " full course tutorial")}`} target="_blank" rel="noreferrer" className="text-[10px] bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-700 dark:text-white/80 px-2 py-1 rounded transition-colors border border-slate-200 dark:border-white/10">
                               📺 YouTube Course
                             </a>
-                            <a href={`https://github.com/search?q=${encodeURIComponent(rec.skill + " tutorial")}&type=repositories`} target="_blank" rel="noreferrer" className="text-[10px] bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-700 dark:text-white/80 px-2 py-1 rounded transition-colors border border-slate-200 dark:border-white/10">
+                            <a href={`https://github.com/search?q=${encodeURIComponent(missingSkill + " tutorial")}&type=repositories`} target="_blank" rel="noreferrer" className="text-[10px] bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-700 dark:text-white/80 px-2 py-1 rounded transition-colors border border-slate-200 dark:border-white/10">
                               💻 GitHub Repos
                             </a>
-                            <a href={`https://www.freecodecamp.org/news/search/?query=${encodeURIComponent(rec.skill)}`} target="_blank" rel="noreferrer" className="text-[10px] bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-700 dark:text-white/80 px-2 py-1 rounded transition-colors border border-slate-200 dark:border-white/10">
+                            <a href={`https://www.freecodecamp.org/news/search/?query=${encodeURIComponent(missingSkill)}`} target="_blank" rel="noreferrer" className="text-[10px] bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-700 dark:text-white/80 px-2 py-1 rounded transition-colors border border-slate-200 dark:border-white/10">
                               📚 FreeCodeCamp
                             </a>
                           </div>
@@ -619,11 +628,12 @@ function SkillGapPage() {
                         <div className="space-y-1">
                           <span className="text-[10px] font-bold text-slate-400 dark:text-white/40 uppercase tracking-wider block">Practice Project Idea:</span>
                           <p className="text-xs text-slate-900 dark:text-white/75 bg-blue-500/5 border border-blue-500/10 p-3 rounded-lg leading-relaxed font-light">
-                            {rec.projectIdea}
+                            {rec?.projectIdea || `Build a small starter project utilizing ${missingSkill} to understand its core concepts and practical applications.`}
                           </p>
                         </div>
                       </div>
-                    ))
+                      );
+                    })
                   ) : (
                     <div className="text-center py-6 text-xs text-slate-400 dark:text-white/30">
                       You already possess all required skills for this job role! Keep up the great work.
