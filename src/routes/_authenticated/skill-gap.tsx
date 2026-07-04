@@ -395,7 +395,9 @@ function SkillGapPage() {
                 </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                  {gaps.map((role: any) => (
+                  {gaps.map((role: any) => {
+                    const computedMatchScore = (!role.missingSkills || role.missingSkills.length === 0) ? 100 : (role.matchScore || 0);
+                    return (
                     <div
                       key={role.jobId}
                       onClick={() => setActiveFilterId(activeFilterId === role.jobId ? null : role.jobId)}
@@ -412,7 +414,7 @@ function SkillGapPage() {
                             <span className="text-sm font-bold text-slate-900 dark:text-white block truncate" title={role.jobTitle}>{role.jobTitle}</span>
                             <span className="text-xs text-slate-400 dark:text-white/40 font-medium block mt-1 truncate" title={role.company}>{role.company}</span>
                           </div>
-                          <span className="text-sm font-bold text-blue-600 dark:text-blue-400 shrink-0 whitespace-nowrap">{role.matchScore}% Match</span>
+                          <span className="text-sm font-bold text-blue-600 dark:text-blue-400 shrink-0 whitespace-nowrap">{computedMatchScore}% Match</span>
                         </div>
 
                         <div className="space-y-3">
@@ -445,7 +447,8 @@ function SkillGapPage() {
                         </button>
                       </div>
                     </div>
-                  ))}
+                  );
+                  })}
                 </div>
               </div>
             )}
@@ -570,7 +573,7 @@ function SkillGapPage() {
                   <span className="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider">Role Learning Path</span>
                 </div>
                 <h2 className="text-2xl font-bold text-slate-900 dark:text-white font-display">{selectedRole.jobTitle}</h2>
-                <p className="text-xs text-slate-400 dark:text-white/40 font-semibold">{selectedRole.company} • {selectedRole.matchScore}% Match Profile</p>
+                <p className="text-xs text-slate-400 dark:text-white/40 font-semibold">{selectedRole.company} • {(!selectedRole.missingSkills || selectedRole.missingSkills.length === 0) ? 100 : (selectedRole.matchScore || 0)}% Match Profile</p>
               </div>
 
               {/* Skills Analysis List */}
