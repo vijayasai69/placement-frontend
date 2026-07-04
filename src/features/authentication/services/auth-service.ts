@@ -56,7 +56,7 @@ export const getSession = async () => {
 import { createAuthClient } from "better-auth/react";
 
 export const authClient = createAuthClient({
-  baseURL: import.meta.env.VITE_API_BASE_URL || "http://localhost:3000" // the backend URL
+  baseURL: import.meta.env.VITE_API_BASE_URL || undefined
 });
 
 /** Google Sign In — uses official Better Auth client to handle redirect */
