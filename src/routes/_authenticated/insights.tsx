@@ -728,7 +728,7 @@ function InsightsPage() {
         drag
         dragConstraints={{ left: -10, right: 10, top: -10, bottom: 10 }}
         whileHover={{ scale: 1.1 }}
-        className="fixed bottom-10 right-10 w-14 h-14 bg-white dark:bg-[#0a0f1c] border border-slate-200 dark:border-white/10 rounded-full shadow-[0_0_30px_rgba(139,92,246,0.3)] flex items-center justify-center cursor-pointer z-50 overflow-hidden group"
+        className="fixed bottom-24 right-6 w-14 h-14 bg-white dark:bg-[#0a0f1c] border border-slate-200 dark:border-white/10 rounded-full shadow-[0_0_30px_rgba(139,92,246,0.3)] flex items-center justify-center cursor-pointer z-50 overflow-hidden group"
       >
         <div className="absolute inset-0 bg-gradient-to-tr from-violet-500/20 to-cyan-500/20 group-hover:from-violet-500/40 group-hover:to-cyan-500/40 transition-colors" />
         <Brain className="w-6 h-6 text-white relative z-10" />
