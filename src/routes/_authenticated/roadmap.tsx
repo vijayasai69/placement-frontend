@@ -32,8 +32,8 @@ function RoadmapPage() {
   const [isVerifying, setIsVerifying] = useState(false);
   const [verifyError, setVerifyError] = useState("");
   const [needsGithubLink, setNeedsGithubLink] = useState(false);
+  const [expandedResources, setExpandedResources] = useState(false);
 
-  
   const { data, isLoading, error } = useQuery({
     queryKey: ["roadmap"],
     queryFn: async () => {
@@ -330,18 +330,43 @@ function RoadmapPage() {
                     Recommended Resources
                   </h4>
                   <div className="space-y-4">
-                    {((selectedMilestone as any).targetSkills || (selectedMilestone.targetSkill ? [selectedMilestone.targetSkill] : [selectedMilestone.title])).map((skill: string, idx: number) => (
-                      <div key={idx}>
-                        <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">{skill}</div>
-                        <ul className="space-y-1.5 text-sm text-blue-500 dark:text-blue-400">
-                          <li><a href={`https://www.freecodecamp.org/news/search/?query=${encodeURIComponent(skill)}`} target="_blank" rel="noreferrer" className="hover:underline">→ FreeCodeCamp Guide</a></li>
-                          <li><a href={`https://github.com/search?q=${encodeURIComponent(skill + " tutorial")}&type=repositories`} target="_blank" rel="noreferrer" className="hover:underline">→ GitHub Repositories</a></li>
-                          <li><a href={`https://www.youtube.com/results?search_query=${encodeURIComponent(skill + " full course tutorial")}`} target="_blank" rel="noreferrer" className="hover:underline">→ YouTube Crash Course</a></li>
-                          <li><a href={`https://www.udemy.com/courses/search/?q=${encodeURIComponent(skill)}`} target="_blank" rel="noreferrer" className="hover:underline">→ Udemy Courses</a></li>
-                          <li><a href={`https://www.coursera.org/search?query=${encodeURIComponent(skill)}`} target="_blank" rel="noreferrer" className="hover:underline">→ Coursera Courses</a></li>
-                        </ul>
-                      </div>
-                    ))}
+                    {(() => {
+                      const targetSkills = (selectedMilestone as any).targetSkills || (selectedMilestone.targetSkill ? [selectedMilestone.targetSkill] : [selectedMilestone.title]);
+                      const displayedSkills = expandedResources ? targetSkills : targetSkills.slice(0, 1);
+                      
+                      return (
+                        <>
+                          {displayedSkills.map((skill: string, idx: number) => (
+                            <div key={idx}>
+                              <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">{skill}</div>
+                              <ul className="space-y-1.5 text-sm text-blue-500 dark:text-blue-400">
+                                <li><a href={`https://www.freecodecamp.org/news/search/?query=${encodeURIComponent(skill)}`} target="_blank" rel="noreferrer" className="hover:underline">→ FreeCodeCamp Guide</a></li>
+                                <li><a href={`https://github.com/search?q=${encodeURIComponent(skill + " tutorial")}&type=repositories`} target="_blank" rel="noreferrer" className="hover:underline">→ GitHub Repositories</a></li>
+                                <li><a href={`https://www.youtube.com/results?search_query=${encodeURIComponent(skill + " full course tutorial")}`} target="_blank" rel="noreferrer" className="hover:underline">→ YouTube Crash Course</a></li>
+                                <li><a href={`https://www.udemy.com/courses/search/?q=${encodeURIComponent(skill)}`} target="_blank" rel="noreferrer" className="hover:underline">→ Udemy Courses</a></li>
+                                <li><a href={`https://www.coursera.org/search?query=${encodeURIComponent(skill)}`} target="_blank" rel="noreferrer" className="hover:underline">→ Coursera Courses</a></li>
+                              </ul>
+                            </div>
+                          ))}
+                          {!expandedResources && targetSkills.length > 1 && (
+                            <button 
+                              onClick={() => setExpandedResources(true)}
+                              className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline w-full text-center pt-2"
+                            >
+                              + View {targetSkills.length - 1} More Topics
+                            </button>
+                          )}
+                          {expandedResources && targetSkills.length > 1 && (
+                            <button 
+                              onClick={() => setExpandedResources(false)}
+                              className="text-xs font-semibold text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 hover:underline w-full text-center pt-2"
+                            >
+                              - Show Less
+                            </button>
+                          )}
+                        </>
+                      );
+                    })()}
                   </div>
                 </div>
 
@@ -419,6 +444,7 @@ function RoadmapPage() {
                   setSelectedMilestone(null);
                   setVerifyError("");
                   setNeedsGithubLink(false);
+                  setExpandedResources(false);
                 }} 
                 className="absolute top-4 right-4 text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white transition-colors"
               >
