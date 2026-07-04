@@ -723,17 +723,7 @@ function InsightsPage() {
       <div className="fixed top-0 left-10 w-[600px] h-[600px] bg-violet-600/10 rounded-full blur-[120px] pointer-events-none -z-10" />
       <div className="fixed bottom-0 right-10 w-[600px] h-[600px] bg-cyan-600/10 rounded-full blur-[120px] pointer-events-none -z-10" />
 
-      {/* Floating AI Assistant Icon */}
-      <motion.div
-        drag
-        dragConstraints={{ left: -10, right: 10, top: -10, bottom: 10 }}
-        whileHover={{ scale: 1.1 }}
-        className="fixed bottom-24 right-6 w-14 h-14 bg-white dark:bg-[#0a0f1c] border border-slate-200 dark:border-white/10 rounded-full shadow-[0_0_30px_rgba(139,92,246,0.3)] flex items-center justify-center cursor-pointer z-50 overflow-hidden group"
-      >
-        <div className="absolute inset-0 bg-gradient-to-tr from-violet-500/20 to-cyan-500/20 group-hover:from-violet-500/40 group-hover:to-cyan-500/40 transition-colors" />
-        <Brain className="w-6 h-6 text-white relative z-10" />
-        <div className="absolute top-1 right-1 w-2.5 h-2.5 bg-emerald-500 rounded-full border-2 border-[#0a0f1c] animate-pulse" />
-      </motion.div>
+
 
       {/* Header */}
       <motion.div
