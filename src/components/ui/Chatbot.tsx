@@ -148,7 +148,7 @@ export function Chatbot() {
             exit={{ scale: 0, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-primary to-accent-magenta text-white shadow-[0_4px_24px_rgba(124,58,237,0.4)] flex items-center justify-center hover:shadow-[0_4px_32px_rgba(124,58,237,0.6)] hover:scale-105 active:scale-95 transition-all duration-200 group float-y"
+            className="fixed bottom-24 md:bottom-6 right-4 md:right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-primary to-accent-magenta text-white shadow-[0_4px_24px_rgba(124,58,237,0.4)] flex items-center justify-center hover:shadow-[0_4px_32px_rgba(124,58,237,0.6)] hover:scale-105 active:scale-95 transition-all duration-200 group float-y"
             aria-label="Open AI Career Coach"
           >
             <Bot className="w-7 h-7 group-hover:rotate-12 transition-transform duration-300" />
