@@ -3,6 +3,10 @@
     {
       "source": "/api/:path*",
       "destination": "https://placement-backend-yoad.onrender.com/api/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
