@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation, useNavigate } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { useAuthStore } from "@/features/authentication/store/auth-store";
 import { useUIStore } from "@/store/ui-store";
 import { logout } from "@/features/authentication/services/auth-service";
@@ -58,8 +58,6 @@ export function Sidebar() {
   const customAvatar = useAuthStore(state => state.user ? state.customAvatars[state.user.id] : null);
   const { sidebarCollapsed, toggleSidebar } = useUIStore();
   const location = useLocation();
-  const navigate = useNavigate();
-
   const initials = user?.name
     ? user.name.split(" ").map((n) => n[0]).join("").toUpperCase()
     : "U";
@@ -77,7 +75,7 @@ export function Sidebar() {
     logout()
       .catch((err) => console.error("Logout request failed:", err))
       .finally(() => {
-        setUser(null);
+        clearUser();
         window.location.href = "/login";
       });
   };

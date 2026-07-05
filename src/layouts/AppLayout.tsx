@@ -1,7 +1,7 @@
 import { useEffect, type ReactNode } from "react";
 import { Chatbot } from "@/components/ui/Chatbot";
 import { Sidebar, MobileTabBar } from "./Sidebar";
-import { useLocation, useNavigate } from "@tanstack/react-router";
+import { useLocation } from "@tanstack/react-router";
 import { LogOut, Sun, Moon } from "lucide-react";
 import { useAuthStore } from "@/features/authentication/store/auth-store";
 import { logout } from "@/features/authentication/services/auth-service";
@@ -15,7 +15,7 @@ interface AppLayoutProps {
 export function AppLayout({ children }: AppLayoutProps) {
   const location = useLocation();
   const { clearUser } = useAuthStore();
-  const navigate = useNavigate();
+
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
