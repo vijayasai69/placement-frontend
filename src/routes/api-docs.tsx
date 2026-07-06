@@ -20,8 +20,8 @@ function ApiDocsPage() {
       <main className="max-w-5xl mx-auto px-6 py-12 md:py-20 space-y-16 flex-1 w-full">
         {/* Header */}
         <div className="space-y-6 text-center max-w-2xl mx-auto">
-          <div className="inline-flex p-4 bg-blue-500/10 border border-blue-500/20 rounded-2xl text-blue-400 mb-4 shadow-[0_0_30px_rgba(59,130,246,0.15)] relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent"></div>
+          <div className="inline-flex p-4 bg-purple-500/10 border border-purple-500/20 rounded-2xl text-purple-400 mb-4 shadow-[0_0_30px_rgba(59,130,246,0.15)] relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/10 to-transparent"></div>
             <Code2 className="w-10 h-10 relative z-10" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight font-display bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-white/60">
@@ -37,14 +37,14 @@ function ApiDocsPage() {
           <div className="lg:col-span-2 space-y-8">
             <div className="glass-card p-8 space-y-6">
               <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                <Terminal className="w-5 h-5 text-blue-400" /> Getting Started
+                <Terminal className="w-5 h-5 text-purple-400" /> Getting Started
               </h2>
               <p className="text-sm text-white/60 leading-relaxed">
                 The Placement AI API is organized around REST. Our API has predictable resource-oriented URLs, accepts form-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes.
               </p>
               
               <div className="p-4 rounded-xl bg-black/40 border border-white/5 font-mono text-xs text-white/70 overflow-x-auto">
-                <span className="text-blue-400">curl</span> https://api.placement-ai.com/v1/ping \<br/>
+                <span className="text-purple-400">curl</span> https://api.placement-ai.com/v1/ping \<br/>
                 &nbsp;&nbsp;-H <span className="text-emerald-400">"Authorization: Bearer YOUR_API_KEY"</span>
               </div>
             </div>
@@ -53,7 +53,7 @@ function ApiDocsPage() {
               <h3 className="text-lg font-bold text-white">Core Endpoints</h3>
               {endpoints.map((ep, i) => (
                 <div key={i} className="glass-card p-5 flex flex-col sm:flex-row sm:items-center gap-4">
-                  <span className={`px-2 py-1 rounded text-[10px] font-bold font-mono tracking-wider shrink-0 ${ep.method === 'POST' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : 'bg-blue-500/20 text-blue-400 border border-blue-500/30'}`}>
+                  <span className={`px-2 py-1 rounded text-[10px] font-bold font-mono tracking-wider shrink-0 ${ep.method === 'POST' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : 'bg-purple-500/20 text-purple-400 border border-purple-500/30'}`}>
                     {ep.method}
                   </span>
                   <span className="font-mono text-sm text-white/90 shrink-0">{ep.path}</span>

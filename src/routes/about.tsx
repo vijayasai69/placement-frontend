@@ -21,15 +21,15 @@ function AboutPage() {
       <main className="max-w-6xl mx-auto px-6 py-12 md:py-20 space-y-20 flex-1">
         {/* Header */}
         <div className="space-y-6 text-center max-w-3xl mx-auto">
-          <div className="inline-flex p-4 bg-blue-500/10 border border-blue-500/20 rounded-2xl text-blue-400 mb-4 shadow-[0_0_30px_rgba(59,130,246,0.15)] relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent"></div>
+          <div className="inline-flex p-4 bg-purple-500/10 border border-purple-500/20 rounded-2xl text-purple-400 mb-4 shadow-[0_0_30px_rgba(59,130,246,0.15)] relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/10 to-transparent"></div>
             <Users className="w-10 h-10 relative z-10" />
           </div>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight font-display bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-white/60">
             About Us
           </h1>
           <p className="text-lg text-slate-500 dark:text-white/60 font-light leading-relaxed">
-            We are a team of AI researchers, career coaches, and engineers on a mission to democratize career success. By bridging the gap between academic achievements and industry demands, we help thousands of professionals land their dream roles.
+            We are a passionate team on a mission to democratize career success. By bridging the gap between academic achievements and industry demands, we aim to help professionals land their dream roles.
           </p>
         </div>
 
@@ -38,17 +38,17 @@ function AboutPage() {
           <div className="space-y-6 text-slate-700 dark:text-white/80 leading-relaxed font-light">
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white font-display">Our Story</h2>
             <p>
-              Founded in 2024, Placement Recommendation was born out of a simple observation: the job market is incredibly opaque. Brilliant candidates are constantly filtered out by rigid ATS systems, while companies struggle to find the right talent.
+              Founded on June 1st, 2026, Placement Recommendation was born out of a simple observation: the job market is incredibly opaque. Brilliant candidates are constantly filtered out by rigid ATS systems, while companies struggle to find the right talent.
             </p>
             <p>
-              We decided to build an intelligence layer that understands both the candidate's true potential and the market's evolving requirements. Today, our predictive models analyze millions of data points to provide actionable, personalized career pathways.
+              We decided to build an intelligence layer that understands both the candidate's true potential and the market's evolving requirements. Today, our predictive models analyze thousands of data points to provide actionable, personalized career pathways.
             </p>
           </div>
           <div className="glass-card p-8 flex items-center justify-center relative overflow-hidden min-h-[300px] rounded-3xl">
-             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 mix-blend-overlay"></div>
+             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-purple-500/20 mix-blend-overlay"></div>
              <div className="w-full h-full border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-center">
-                <span className="text-5xl font-bold text-white mb-2">10M+</span>
-                <span className="text-sm text-white/60 uppercase tracking-widest">Resumes Analyzed</span>
+                <span className="text-5xl font-bold text-white mb-2">1,000+</span>
+                <span className="text-sm text-white/60 uppercase tracking-widest">Data Points Analyzed</span>
              </div>
           </div>
         </div>
@@ -58,8 +58,8 @@ function AboutPage() {
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white font-display text-center">Our Core Values</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((v, i) => (
-              <div key={i} className="glass-card p-6 space-y-4 hover:border-blue-500/30 transition-colors">
-                <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400">
+              <div key={i} className="glass-card p-6 space-y-4 hover:border-purple-500/30 transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400">
                   <v.icon className="w-6 h-6" />
                 </div>
                 <h3 className="font-bold text-white">{v.title}</h3>

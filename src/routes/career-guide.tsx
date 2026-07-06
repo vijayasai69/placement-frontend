@@ -21,8 +21,8 @@ function CareerGuidePage() {
       <main className="max-w-4xl mx-auto px-6 py-12 md:py-20 space-y-16 flex-1">
         {/* Header */}
         <div className="space-y-6 text-center">
-          <div className="inline-flex p-4 bg-blue-500/10 border border-blue-500/20 rounded-2xl text-blue-400 mb-4 shadow-[0_0_30px_rgba(59,130,246,0.15)] relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent"></div>
+          <div className="inline-flex p-4 bg-purple-500/10 border border-purple-500/20 rounded-2xl text-purple-400 mb-4 shadow-[0_0_30px_rgba(59,130,246,0.15)] relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/10 to-transparent"></div>
             <Compass className="w-10 h-10 relative z-10" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight font-display bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-white/60">
@@ -38,7 +38,7 @@ function CareerGuidePage() {
           {chapters.map((chapter, i) => (
             <div key={i} className="glass-card p-6 md:p-8 flex items-center justify-between group hover:bg-white/[0.02] transition-colors cursor-pointer rounded-2xl">
               <div className="flex items-center gap-6">
-                <div className="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 shrink-0 border border-blue-500/20 group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 rounded-2xl bg-purple-500/10 flex items-center justify-center text-purple-400 shrink-0 border border-purple-500/20 group-hover:scale-110 transition-transform">
                   <chapter.icon className="w-6 h-6" />
                 </div>
                 <div className="space-y-1">
@@ -46,7 +46,7 @@ function CareerGuidePage() {
                   <p className="text-sm text-white/50">{chapter.desc}</p>
                 </div>
               </div>
-              <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/30 group-hover:text-white group-hover:bg-blue-500/20 transition-all shrink-0 ml-4">
+              <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/30 group-hover:text-white group-hover:bg-purple-500/20 transition-all shrink-0 ml-4">
                 <ChevronRight className="w-5 h-5" />
               </div>
             </div>
@@ -55,7 +55,7 @@ function CareerGuidePage() {
 
         {/* CTA */}
         <div className="glass-card p-8 text-center rounded-3xl relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 mix-blend-overlay"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-purple-600/20 mix-blend-overlay"></div>
           <h2 className="text-2xl font-bold text-white mb-4 relative z-10">Want personalized guidance?</h2>
           <p className="text-white/60 mb-6 relative z-10 max-w-lg mx-auto">Upload your resume to get a custom roadmap tailored specifically to your background and goals.</p>
           <button className="px-6 py-3 bg-white text-black font-semibold rounded-full relative z-10 hover:scale-105 transition-transform">

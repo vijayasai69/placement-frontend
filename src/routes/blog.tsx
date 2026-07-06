@@ -12,9 +12,9 @@ function BlogPage() {
     { title: "How AI is Reshaping the Technical Interview Process", category: "AI & Tech", date: "June 15, 2026", author: "Sarah Jenkins" },
     { title: "7 Resume Keywords That Trigger ATS Filters in 2026", category: "Career Advice", date: "June 10, 2026", author: "Mark Donahue" },
     { title: "Transitioning from Web2 to Web3: A Complete Guide", category: "Industry Trends", date: "June 05, 2026", author: "Alex Rivera" },
-    { title: "The Rise of Soft Skills: What Algorithms Look For", category: "Insights", date: "May 28, 2026", author: "Elena Rostova" },
-    { title: "Negotiating Salary in a Remote-First World", category: "Career Advice", date: "May 20, 2026", author: "David Chen" },
-    { title: "Understanding Predictive Career Pathways", category: "Product", date: "May 12, 2026", author: "Sarah Jenkins" },
+    { title: "The Rise of Soft Skills: What Algorithms Look For", category: "Insights", date: "June 18, 2026", author: "Elena Rostova" },
+    { title: "Negotiating Salary in a Remote-First World", category: "Career Advice", date: "June 25, 2026", author: "David Chen" },
+    { title: "Understanding Predictive Career Pathways", category: "Product", date: "July 2, 2026", author: "Sarah Jenkins" },
   ];
 
   return (
@@ -23,8 +23,8 @@ function BlogPage() {
       <main className="max-w-6xl mx-auto px-6 py-12 md:py-20 space-y-16 flex-1">
         {/* Header */}
         <div className="space-y-6 text-center max-w-2xl mx-auto">
-          <div className="inline-flex p-4 bg-blue-500/10 border border-blue-500/20 rounded-2xl text-blue-400 mb-4 shadow-[0_0_30px_rgba(59,130,246,0.15)] relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent"></div>
+          <div className="inline-flex p-4 bg-purple-500/10 border border-purple-500/20 rounded-2xl text-purple-400 mb-4 shadow-[0_0_30px_rgba(59,130,246,0.15)] relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/10 to-transparent"></div>
             <BookOpen className="w-10 h-10 relative z-10" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight font-display bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-white/60">
@@ -38,15 +38,15 @@ function BlogPage() {
         {/* Blog Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts.map((post, i) => (
-            <div key={i} className="glass-card flex flex-col overflow-hidden group cursor-pointer hover:border-blue-500/30 transition-colors">
+            <div key={i} className="glass-card flex flex-col overflow-hidden group cursor-pointer hover:border-purple-500/30 transition-colors">
               <div className="h-48 bg-slate-800/50 relative overflow-hidden">
-                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 group-hover:scale-105 transition-transform duration-500"></div>
+                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-purple-500/10 group-hover:scale-105 transition-transform duration-500"></div>
                  <div className="absolute top-4 left-4 px-3 py-1 bg-black/50 backdrop-blur-md rounded-full border border-white/10 text-xs font-semibold text-white/90">
                    {post.category}
                  </div>
               </div>
               <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                <h3 className="text-xl font-bold text-white leading-snug group-hover:text-blue-400 transition-colors line-clamp-2">
+                <h3 className="text-xl font-bold text-white leading-snug group-hover:text-purple-400 transition-colors line-clamp-2">
                   {post.title}
                 </h3>
                 <div className="flex items-center justify-between text-xs text-white/40">

@@ -21,8 +21,8 @@ function ResumeTemplatesPage() {
       <main className="max-w-6xl mx-auto px-6 py-12 md:py-20 space-y-16 flex-1">
         {/* Header */}
         <div className="space-y-6 text-center max-w-2xl mx-auto">
-          <div className="inline-flex p-4 bg-blue-500/10 border border-blue-500/20 rounded-2xl text-blue-400 mb-4 shadow-[0_0_30px_rgba(59,130,246,0.15)] relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent"></div>
+          <div className="inline-flex p-4 bg-purple-500/10 border border-purple-500/20 rounded-2xl text-purple-400 mb-4 shadow-[0_0_30px_rgba(59,130,246,0.15)] relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/10 to-transparent"></div>
             <LayoutTemplate className="w-10 h-10 relative z-10" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight font-display bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-white/60">
@@ -57,7 +57,7 @@ function ResumeTemplatesPage() {
                 <p className="text-xs text-white/50">{tpl.role}</p>
               </div>
               
-              <button className="w-full py-2.5 rounded-lg bg-white/5 hover:bg-blue-500/20 hover:text-blue-400 border border-white/10 hover:border-blue-500/30 transition-all flex items-center justify-center gap-2 text-sm font-medium text-white/80 mt-auto">
+              <button className="w-full py-2.5 rounded-lg bg-white/5 hover:bg-purple-500/20 hover:text-purple-400 border border-white/10 hover:border-purple-500/30 transition-all flex items-center justify-center gap-2 text-sm font-medium text-white/80 mt-auto">
                 <Download className="w-4 h-4" /> Download DOCX
               </button>
             </div>
