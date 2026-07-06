@@ -15,14 +15,14 @@ function PrivacyPage() {
       <main className="max-w-4xl mx-auto px-6 py-12 md:py-20 space-y-12">
         {/* Header */}
         <div className="space-y-4 text-center">
-          <div className="inline-flex p-3 bg-blue-500/10 border border-blue-500/20 rounded-2xl text-blue-400">
+          <div className="inline-flex p-3 bg-purple-500/10 border border-purple-500/20 rounded-2xl text-purple-400">
             <ShieldCheck className="w-8 h-8" />
           </div>
           <h1 className="text-3xl md:text-5xl font-bold tracking-tight font-display bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-white/60">
             Privacy Policy
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-white/50 max-w-xl mx-auto font-light leading-relaxed">
-            Effective date: June 20, 2026. Learn how we handle your resume, credentials, and AI profiling data.
+            Effective date: June 1, 2026. Learn how we handle your resume, credentials, and AI profiling data.
           </p>
         </div>
 
@@ -32,7 +32,7 @@ function PrivacyPage() {
           {/* Section 1 */}
           <div className="space-y-4">
             <h2 className="text-lg font-bold text-slate-900 dark:text-white font-display flex items-center gap-3">
-              <FileText className="w-5 h-5 text-blue-400 shrink-0" />
+              <FileText className="w-5 h-5 text-purple-400 shrink-0" />
               <span>1. Information We Collect</span>
             </h2>
             <p>
@@ -49,7 +49,7 @@ function PrivacyPage() {
           {/* Section 2 */}
           <div className="space-y-4">
             <h2 className="text-lg font-bold text-slate-900 dark:text-white font-display flex items-center gap-3">
-              <Eye className="w-5 h-5 text-blue-400 shrink-0" />
+              <Eye className="w-5 h-5 text-purple-400 shrink-0" />
               <span>2. How We Use Your Information</span>
             </h2>
             <p>
@@ -66,7 +66,7 @@ function PrivacyPage() {
           {/* Section 3 */}
           <div className="space-y-4">
             <h2 className="text-lg font-bold text-slate-900 dark:text-white font-display flex items-center gap-3">
-              <Share2 className="w-5 h-5 text-blue-400 shrink-0" />
+              <Share2 className="w-5 h-5 text-purple-400 shrink-0" />
               <span>3. Data Sharing & AI Processing</span>
             </h2>
             <p>
@@ -80,7 +80,7 @@ function PrivacyPage() {
           {/* Section 4 */}
           <div className="space-y-4">
             <h2 className="text-lg font-bold text-slate-900 dark:text-white font-display flex items-center gap-3">
-              <Key className="w-5 h-5 text-blue-400 shrink-0" />
+              <Key className="w-5 h-5 text-purple-400 shrink-0" />
               <span>4. Data Security & Storage</span>
             </h2>
             <p>
@@ -91,7 +91,7 @@ function PrivacyPage() {
           {/* Section 5 */}
           <div className="space-y-4">
             <h2 className="text-lg font-bold text-slate-900 dark:text-white font-display flex items-center gap-3">
-              <ShieldCheck className="w-5 h-5 text-blue-400 shrink-0" />
+              <ShieldCheck className="w-5 h-5 text-purple-400 shrink-0" />
               <span>5. Control Over Your Data</span>
             </h2>
             <p>
