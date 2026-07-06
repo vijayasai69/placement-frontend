@@ -57,9 +57,9 @@ function ResumeTemplatesPage() {
                 <p className="text-xs text-slate-600 dark:text-white/50">{tpl.role}</p>
               </div>
               
-              <button className="w-full py-2.5 rounded-lg bg-slate-100 dark:bg-white/5 hover:bg-purple-500/20 hover:text-purple-600 dark:text-purple-400 border border-slate-200 dark:border-white/10 hover:border-purple-500/30 transition-all flex items-center justify-center gap-2 text-sm font-medium text-slate-700 dark:text-white/80 mt-auto">
+              <a href={`/templates/${tpl.name.replace(/ /g, '_')}.docx`} download={`${tpl.name.replace(/ /g, '_')}_Resume_Template.docx`} className="w-full py-2.5 rounded-lg bg-slate-100 dark:bg-white/5 hover:bg-purple-500/20 hover:text-purple-600 dark:hover:text-purple-400 border border-slate-200 dark:border-white/10 hover:border-purple-500/30 transition-all flex items-center justify-center gap-2 text-sm font-medium text-slate-700 dark:text-white/80 mt-auto">
                 <Download className="w-4 h-4" /> Download DOCX
-              </button>
+              </a>
             </div>
           ))}
         </div>
