@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { UploadCloud, Search, FileText, Briefcase, Bookmark, Loader2, AlertCircle, Brain } from "lucide-react";
+import { UploadCloud, Search, FileText, Briefcase, Bookmark, AlertCircle, Brain } from "lucide-react";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { useAuthStore } from "@/features/authentication/store/auth-store";
 import { useActiveProfile } from "@/store/useActiveProfile";
