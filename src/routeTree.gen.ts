@@ -10,8 +10,14 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as ResumeTemplatesRouteImport } from './routes/resume-templates'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as CareersRouteImport } from './routes/careers'
+import { Route as CareerGuideRouteImport } from './routes/career-guide'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as ApiDocsRouteImport } from './routes/api-docs'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedSupportRouteImport } from './routes/_authenticated/support'
@@ -32,14 +38,44 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ResumeTemplatesRoute = ResumeTemplatesRouteImport.update({
+  id: '/resume-templates',
+  path: '/resume-templates',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CareersRoute = CareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareerGuideRoute = CareerGuideRouteImport.update({
+  id: '/career-guide',
+  path: '/career-guide',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthRoute = AuthRouteImport.update({
   id: '/auth',
   path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiDocsRoute = ApiDocsRouteImport.update({
+  id: '/api-docs',
+  path: '/api-docs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthenticatedRoute = AuthenticatedRouteImport.update({
@@ -117,8 +153,14 @@ const AuthenticatedApplicationsRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/api-docs': typeof ApiDocsRoute
   '/auth': typeof AuthRoute
+  '/blog': typeof BlogRoute
+  '/career-guide': typeof CareerGuideRoute
+  '/careers': typeof CareersRoute
   '/privacy': typeof PrivacyRoute
+  '/resume-templates': typeof ResumeTemplatesRoute
   '/terms': typeof TermsRoute
   '/applications': typeof AuthenticatedApplicationsRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
@@ -135,8 +177,14 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/api-docs': typeof ApiDocsRoute
   '/auth': typeof AuthRoute
+  '/blog': typeof BlogRoute
+  '/career-guide': typeof CareerGuideRoute
+  '/careers': typeof CareersRoute
   '/privacy': typeof PrivacyRoute
+  '/resume-templates': typeof ResumeTemplatesRoute
   '/terms': typeof TermsRoute
   '/applications': typeof AuthenticatedApplicationsRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
@@ -155,8 +203,14 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteWithChildren
+  '/about': typeof AboutRoute
+  '/api-docs': typeof ApiDocsRoute
   '/auth': typeof AuthRoute
+  '/blog': typeof BlogRoute
+  '/career-guide': typeof CareerGuideRoute
+  '/careers': typeof CareersRoute
   '/privacy': typeof PrivacyRoute
+  '/resume-templates': typeof ResumeTemplatesRoute
   '/terms': typeof TermsRoute
   '/_authenticated/applications': typeof AuthenticatedApplicationsRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
@@ -175,8 +229,14 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
+    | '/api-docs'
     | '/auth'
+    | '/blog'
+    | '/career-guide'
+    | '/careers'
     | '/privacy'
+    | '/resume-templates'
     | '/terms'
     | '/applications'
     | '/dashboard'
@@ -193,8 +253,14 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
+    | '/api-docs'
     | '/auth'
+    | '/blog'
+    | '/career-guide'
+    | '/careers'
     | '/privacy'
+    | '/resume-templates'
     | '/terms'
     | '/applications'
     | '/dashboard'
@@ -212,8 +278,14 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/_authenticated'
+    | '/about'
+    | '/api-docs'
     | '/auth'
+    | '/blog'
+    | '/career-guide'
+    | '/careers'
     | '/privacy'
+    | '/resume-templates'
     | '/terms'
     | '/_authenticated/applications'
     | '/_authenticated/dashboard'
@@ -232,8 +304,14 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRoute: typeof AuthenticatedRouteWithChildren
+  AboutRoute: typeof AboutRoute
+  ApiDocsRoute: typeof ApiDocsRoute
   AuthRoute: typeof AuthRoute
+  BlogRoute: typeof BlogRoute
+  CareerGuideRoute: typeof CareerGuideRoute
+  CareersRoute: typeof CareersRoute
   PrivacyRoute: typeof PrivacyRoute
+  ResumeTemplatesRoute: typeof ResumeTemplatesRoute
   TermsRoute: typeof TermsRoute
 }
 
@@ -246,6 +324,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/resume-templates': {
+      id: '/resume-templates'
+      path: '/resume-templates'
+      fullPath: '/resume-templates'
+      preLoaderRoute: typeof ResumeTemplatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/privacy': {
       id: '/privacy'
       path: '/privacy'
@@ -253,11 +338,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/careers': {
+      id: '/careers'
+      path: '/careers'
+      fullPath: '/careers'
+      preLoaderRoute: typeof CareersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/career-guide': {
+      id: '/career-guide'
+      path: '/career-guide'
+      fullPath: '/career-guide'
+      preLoaderRoute: typeof CareerGuideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/auth': {
       id: '/auth'
       path: '/auth'
       fullPath: '/auth'
       preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api-docs': {
+      id: '/api-docs'
+      path: '/api-docs'
+      fullPath: '/api-docs'
+      preLoaderRoute: typeof ApiDocsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authenticated': {
@@ -398,8 +518,14 @@ const AuthenticatedRouteWithChildren = AuthenticatedRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRoute: AuthenticatedRouteWithChildren,
+  AboutRoute: AboutRoute,
+  ApiDocsRoute: ApiDocsRoute,
   AuthRoute: AuthRoute,
+  BlogRoute: BlogRoute,
+  CareerGuideRoute: CareerGuideRoute,
+  CareersRoute: CareersRoute,
   PrivacyRoute: PrivacyRoute,
+  ResumeTemplatesRoute: ResumeTemplatesRoute,
   TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport
