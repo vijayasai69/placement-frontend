@@ -1,18 +1,41 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Navbar } from "../features/landing/components/Navbar";
 import { Footer } from "../features/landing/components/Footer";
-import { Compass, BookText, Code, MessageSquare, LineChart, ChevronRight } from "lucide-react";
+import { Compass, BookText, Code, MessageSquare, LineChart, ChevronDown } from "lucide-react";
+import { useState } from "react";
 
 export const Route = createFileRoute("/career-guide")({
   component: CareerGuidePage,
 });
 
 function CareerGuidePage() {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
   const chapters = [
-    { icon: BookText, title: "1. Resume Optimization", desc: "Learn how to format, structure, and word your resume to pass ATS filters." },
-    { icon: Code, title: "2. Technical Interviews", desc: "Master system design, algorithms, and live coding assessments." },
-    { icon: MessageSquare, title: "3. Behavioral Interviews", desc: "Using the STAR method to tell compelling professional stories." },
-    { icon: LineChart, title: "4. Salary Negotiation", desc: "Strategies to value your skills and negotiate the best compensation package." },
+    { 
+      icon: BookText, 
+      title: "1. Resume Optimization", 
+      desc: "Learn how to format, structure, and word your resume to pass ATS filters.",
+      content: "An ATS (Applicant Tracking System) parses your resume to extract data. To optimize your resume, use standard headings like 'Experience', 'Education', and 'Skills'. Avoid complex layouts, tables, or columns that can confuse the parser. Use keywords directly from the job description to increase your match score. Quantify your achievements (e.g., 'Improved performance by 20%') to stand out to human recruiters after passing the ATS."
+    },
+    { 
+      icon: Code, 
+      title: "2. Technical Interviews", 
+      desc: "Master system design, algorithms, and live coding assessments.",
+      content: "Technical interviews test your problem-solving skills and coding proficiency. Start by clarifying the problem and defining edge cases before writing any code. For algorithms, practice on platforms like LeetCode and focus on data structures like HashMaps, Trees, and Graphs. For system design interviews, communicate your thought process clearly, discuss trade-offs (e.g., latency vs. consistency), and scale your design from a single user to millions."
+    },
+    { 
+      icon: MessageSquare, 
+      title: "3. Behavioral Interviews", 
+      desc: "Using the STAR method to tell compelling professional stories.",
+      content: "Behavioral interviews assess if you are a cultural fit and how you handle workplace situations. Use the STAR method: Situation (set the scene), Task (describe your responsibility), Action (explain exactly what you did), and Result (share the positive outcome, preferably with metrics). Prepare stories for common themes like conflict resolution, overcoming a challenge, and leadership."
+    },
+    { 
+      icon: LineChart, 
+      title: "4. Salary Negotiation", 
+      desc: "Strategies to value your skills and negotiate the best compensation package.",
+      content: "Never accept the first offer immediately. Always ask for time to review the package. Research market rates for your role and location using tools like levels.fyi or Glassdoor. When negotiating, focus on your value to the company rather than your personal needs. Remember that compensation isn't just base salary—you can also negotiate sign-on bonuses, equity, remote work flexibility, and extra vacation days."
+    },
   ];
 
   return (
@@ -36,19 +59,32 @@ function CareerGuidePage() {
         {/* Chapters */}
         <div className="space-y-6">
           {chapters.map((chapter, i) => (
-            <div key={i} className="glass-card p-6 md:p-8 flex items-center justify-between group hover:bg-white/[0.02] transition-colors cursor-pointer rounded-2xl">
-              <div className="flex items-center gap-6">
-                <div className="w-14 h-14 rounded-2xl bg-purple-500/10 flex items-center justify-center text-purple-400 shrink-0 border border-purple-500/20 group-hover:scale-110 transition-transform">
-                  <chapter.icon className="w-6 h-6" />
+            <div 
+              key={i} 
+              onClick={() => setExpandedIndex(expandedIndex === i ? null : i)}
+              className="glass-card p-6 md:p-8 flex flex-col group hover:bg-white/[0.02] transition-colors cursor-pointer rounded-2xl border border-white/5"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-6">
+                  <div className="w-14 h-14 rounded-2xl bg-purple-500/10 flex items-center justify-center text-purple-400 shrink-0 border border-purple-500/20 transition-transform">
+                    <chapter.icon className="w-6 h-6" />
+                  </div>
+                  <div className="space-y-1">
+                    <h3 className="text-lg md:text-xl font-bold text-white">{chapter.title}</h3>
+                    <p className="text-sm text-white/50">{chapter.desc}</p>
+                  </div>
                 </div>
-                <div className="space-y-1">
-                  <h3 className="text-lg md:text-xl font-bold text-white">{chapter.title}</h3>
-                  <p className="text-sm text-white/50">{chapter.desc}</p>
+                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/30 group-hover:text-white group-hover:bg-purple-500/20 transition-all shrink-0 ml-4">
+                  <ChevronDown className={`w-5 h-5 transition-transform ${expandedIndex === i ? 'rotate-180' : ''}`} />
                 </div>
               </div>
-              <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/30 group-hover:text-white group-hover:bg-purple-500/20 transition-all shrink-0 ml-4">
-                <ChevronRight className="w-5 h-5" />
-              </div>
+              
+              {/* Expandable Content */}
+              {expandedIndex === i && (
+                <div className="mt-6 pt-6 border-t border-white/10 text-slate-300 font-light leading-relaxed animate-in fade-in slide-in-from-top-4 duration-300">
+                  {chapter.content}
+                </div>
+              )}
             </div>
           ))}
         </div>
