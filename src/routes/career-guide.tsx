@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Navbar } from "../features/landing/components/Navbar";
 import { Footer } from "../features/landing/components/Footer";
 import { Compass, BookText, Code, MessageSquare, LineChart, ChevronRight } from "lucide-react";
@@ -58,9 +58,9 @@ function CareerGuidePage() {
           <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-purple-600/20 mix-blend-overlay"></div>
           <h2 className="text-2xl font-bold text-white mb-4 relative z-10">Want personalized guidance?</h2>
           <p className="text-white/60 mb-6 relative z-10 max-w-lg mx-auto">Upload your resume to get a custom roadmap tailored specifically to your background and goals.</p>
-          <button className="px-6 py-3 bg-white text-black font-semibold rounded-full relative z-10 hover:scale-105 transition-transform">
+          <Link to="/auth" className="inline-block px-6 py-3 bg-white text-black font-semibold rounded-full relative z-10 hover:scale-105 transition-transform">
             Analyze My Resume
-          </button>
+          </Link>
         </div>
       </main>
       <Footer />
