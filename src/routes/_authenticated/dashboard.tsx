@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { UploadCloud, Search, FileText, Briefcase, Bookmark, Loader2, AlertCircle,  Brain } from "lucide-react";
+import { UploadCloud, Search, FileText, Briefcase, Bookmark, Loader2, AlertCircle, Brain } from "lucide-react";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { useAuthStore } from "@/features/authentication/store/auth-store";
 import { useActiveProfile } from "@/store/useActiveProfile";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { api } from "@/services/api";
 import { useEffect, useState } from "react";
 
@@ -22,6 +22,90 @@ const CATEGORY_COLORS: Record<string, { stroke: string; bg: string }> = {
   "Mobile":      { stroke: "#f97316", bg: "bg-orange-500" },
   "Other":       { stroke: "#6b7280", bg: "bg-gray-500" },
 };
+
+const loadingPhrases = [
+  "Analyzing your career trajectory...",
+  "Matching skills with top employers...",
+  "Generating personalized roadmap...",
+  "Calibrating ATS metrics...",
+  "Loading your dashboard..."
+];
+
+const DynamicLoader = () => {
+  const [phraseIndex, setPhraseIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPhraseIndex((prev) => (prev + 1) % loadingPhrases.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="flex items-center justify-center h-[60vh] w-full">
+      <div className="flex flex-col items-center justify-center gap-8 max-w-sm w-full">
+        {/* Animated AI Core */}
+        <div className="relative w-32 h-32 flex items-center justify-center">
+          <motion.div
+            className="absolute inset-0 rounded-full border-2 border-blue-500/30 dark:border-blue-400/30"
+            animate={{ rotate: 360, scale: [1, 1.05, 1] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+          />
+          <motion.div
+            className="absolute inset-2 rounded-full border-2 border-indigo-500/40 dark:border-indigo-400/40 border-dashed"
+            animate={{ rotate: -360 }}
+            transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+          />
+          <motion.div
+            className="absolute inset-6 rounded-full border-2 border-purple-500/50 dark:border-purple-400/50"
+            animate={{ rotate: 360, scale: [1, 0.9, 1] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <Brain className="w-10 h-10 text-blue-600 dark:text-blue-400 animate-pulse" />
+          </div>
+          
+          {/* Floating Particles */}
+          {[...Array(4)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.8)]"
+              initial={{ opacity: 0, x: 0, y: 0 }}
+              animate={{ 
+                opacity: [0, 1, 0],
+                x: (Math.random() - 0.5) * 120,
+                y: (Math.random() - 0.5) * 120 
+              }}
+              transition={{
+                duration: 2.5,
+                repeat: Infinity,
+                delay: i * 0.6,
+                ease: "easeOut"
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Text Animation */}
+        <div className="h-8 relative w-full overflow-hidden flex justify-center">
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={phraseIndex}
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -20, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="absolute text-sm font-semibold tracking-wide text-slate-600 dark:text-slate-300 text-center w-full"
+            >
+              {loadingPhrases[phraseIndex]}
+            </motion.span>
+          </AnimatePresence>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 
 interface DashboardStats {
   hasProfile: boolean;
@@ -72,20 +156,7 @@ function DashboardPage() {
   }, [activeProfileId]);
 
   if (loading) {
-    return (
-      <div className="flex items-center justify-center h-[60vh]">
-        <div className="flex flex-col items-center gap-4">
-          <div className="relative">
-            <Loader2 className="w-10 h-10 animate-spin" style={{ color: "var(--accent-blue)" }} />
-            <div className="absolute inset-0 rounded-full animate-ping opacity-20"
-              style={{ background: "var(--accent-blue)" }} />
-          </div>
-          <span className="text-sm font-medium" style={{ color: "var(--text-muted)" }}>
-            Loading your dashboard...
-          </span>
-        </div>
-      </div>
-    );
+    return <DynamicLoader />;
   }
 
   // If no stats or no profile, show empty state
