@@ -38,6 +38,7 @@ export function HowItWorksSection() {
 
   return (
     <section
+      id="process"
       ref={containerRef}
       className="py-28 px-6 sm:px-12 lg:px-24 font-sans max-w-5xl mx-auto relative"
       style={{ background: "var(--bg-primary)" }}

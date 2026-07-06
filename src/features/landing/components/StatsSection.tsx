@@ -49,7 +49,7 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
 
 export function StatsSection() {
   return (
-    <section className="py-24 relative overflow-hidden" style={{ background: "var(--bg-secondary)" }}>
+    <section id="stats" className="py-24 relative overflow-hidden" style={{ background: "var(--bg-secondary)" }}>
       {/* Top and bottom shimmer borders */}
       <div className="absolute top-0 left-0 w-full h-[1px] shimmer" />
       <div className="absolute bottom-0 left-0 w-full h-[1px] shimmer" />
