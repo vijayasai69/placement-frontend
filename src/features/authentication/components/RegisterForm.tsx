@@ -163,7 +163,7 @@ export function RegisterForm() {
         type="button"
         onClick={loginWithGoogle}
         id="google-register-btn"
-        className="w-full py-4 border border-slate-300 dark:border-white/20 text-slate-900 dark:text-white font-display uppercase tracking-widest text-xs flex items-center justify-center gap-3 hover:bg-slate-100 dark:hover:bg-white/5 hover:border-[#06B6D4] transition-colors"
+        className="w-full py-4 border border-slate-300 dark:border-white/20 text-slate-900 dark:text-white font-display uppercase tracking-widest text-xs flex items-center justify-center gap-3 hover:bg-slate-100 dark:hover:bg-white/5 hover:border-purple-500 transition-colors"
       >
         <svg className="h-4 w-4" viewBox="0 0 24 24">
           <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />

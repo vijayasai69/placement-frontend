@@ -152,9 +152,9 @@ export function ForgotPasswordModal({ isOpen, onClose }: ForgotPasswordModalProp
       />
 
       {/* Modal */}
-      <div className="relative w-full max-w-md bg-[#0A0E1A] border border-slate-200 dark:border-white/10 shadow-2xl shadow-[#06B6D4]/10 overflow-hidden animate-fadeIn">
+      <div className="relative w-full max-w-md bg-[#0A0E1A] border border-slate-200 dark:border-white/10 shadow-2xl shadow-purple-500/10 overflow-hidden animate-fadeIn">
         {/* Top accent line */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#06B6D4] to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent" />
 
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-5 border-b border-slate-200 dark:border-white/10">
@@ -171,7 +171,7 @@ export function ForgotPasswordModal({ isOpen, onClose }: ForgotPasswordModalProp
               </button>
             )}
             <div>
-              <p className="text-[10px] font-display uppercase tracking-widest text-[#06B6D4]">
+              <p className="text-[10px] font-display uppercase tracking-widest text-purple-500">
                 {step === "email" && "Step 1 of 3"}
                 {step === "otp" && "Step 2 of 3"}
                 {step === "password" && "Step 3 of 3"}
@@ -205,7 +205,7 @@ export function ForgotPasswordModal({ isOpen, onClose }: ForgotPasswordModalProp
                     (step === "email" && i === 0) ||
                     (step === "otp" && i <= 1) ||
                     (step === "password" && i <= 2)
-                      ? "bg-[#06B6D4]"
+                      ? "bg-purple-500"
                       : "bg-slate-200 dark:bg-white/10"
                   )}
                 />
@@ -217,8 +217,8 @@ export function ForgotPasswordModal({ isOpen, onClose }: ForgotPasswordModalProp
           {step === "email" && (
             <form onSubmit={handleSendOtp} className="space-y-6">
               <div className="text-center mb-6">
-                <div className="w-16 h-16 rounded-full bg-[#06B6D4]/10 border border-[#06B6D4]/30 flex items-center justify-center mx-auto mb-4">
-                  <Mail className="h-7 w-7 text-[#06B6D4]" />
+                <div className="w-16 h-16 rounded-full bg-purple-500/10 border border-purple-500/30 flex items-center justify-center mx-auto mb-4">
+                  <Mail className="h-7 w-7 text-purple-500" />
                 </div>
                 <p className="text-slate-500 dark:text-white/50 text-sm leading-relaxed">
                   Enter your registered email address. We'll send a 6-digit verification code.
@@ -261,13 +261,13 @@ export function ForgotPasswordModal({ isOpen, onClose }: ForgotPasswordModalProp
           {step === "otp" && (
             <form onSubmit={handleVerifyOtp} className="space-y-6">
               <div className="text-center mb-6">
-                <div className="w-16 h-16 rounded-full bg-[#06B6D4]/10 border border-[#06B6D4]/30 flex items-center justify-center mx-auto mb-4">
-                  <KeyRound className="h-7 w-7 text-[#06B6D4]" />
+                <div className="w-16 h-16 rounded-full bg-purple-500/10 border border-purple-500/30 flex items-center justify-center mx-auto mb-4">
+                  <KeyRound className="h-7 w-7 text-purple-500" />
                 </div>
                 <p className="text-slate-500 dark:text-white/50 text-sm leading-relaxed">
                   Enter the 6-digit code sent to
                 </p>
-                <p className="text-[#06B6D4] text-sm font-medium mt-1">{email}</p>
+                <p className="text-purple-500 text-sm font-medium mt-1">{email}</p>
               </div>
 
               {/* OTP Boxes */}
@@ -286,8 +286,8 @@ export function ForgotPasswordModal({ isOpen, onClose }: ForgotPasswordModalProp
                     onKeyDown={(e) => handleOtpKeyDown(i, e)}
                     className={cn(
                       "w-12 h-14 text-center text-xl font-bold bg-slate-100 dark:bg-white/5 border text-slate-900 dark:text-white transition-all duration-200",
-                      "focus:outline-none focus:border-[#06B6D4] focus:bg-[#06B6D4]/10",
-                      digit ? "border-[#06B6D4]/60 bg-[#06B6D4]/5" : "border-slate-300 dark:border-white/20"
+                      "focus:outline-none focus:border-purple-500 focus:bg-purple-500/10",
+                      digit ? "border-purple-500/60 bg-purple-500/5" : "border-slate-300 dark:border-white/20"
                     )}
                   />
                 ))}
@@ -314,7 +314,7 @@ export function ForgotPasswordModal({ isOpen, onClose }: ForgotPasswordModalProp
                     type="button"
                     onClick={handleResend}
                     disabled={loading}
-                    className="text-[#06B6D4] text-xs hover:text-slate-900 dark:hover:text-white transition-colors font-display uppercase tracking-wider"
+                    className="text-purple-500 text-xs hover:text-slate-900 dark:hover:text-white transition-colors font-display uppercase tracking-wider"
                   >
                     Resend
                   </button>
@@ -327,8 +327,8 @@ export function ForgotPasswordModal({ isOpen, onClose }: ForgotPasswordModalProp
           {step === "password" && (
             <form onSubmit={handleResetPassword} className="space-y-6">
               <div className="text-center mb-6">
-                <div className="w-16 h-16 rounded-full bg-[#06B6D4]/10 border border-[#06B6D4]/30 flex items-center justify-center mx-auto mb-4">
-                  <Lock className="h-7 w-7 text-[#06B6D4]" />
+                <div className="w-16 h-16 rounded-full bg-purple-500/10 border border-purple-500/30 flex items-center justify-center mx-auto mb-4">
+                  <Lock className="h-7 w-7 text-purple-500" />
                 </div>
                 <p className="text-slate-500 dark:text-white/50 text-sm leading-relaxed">
                   Create a strong new password for your account.
