@@ -39,16 +39,16 @@ function CareerGuidePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#030712] text-slate-900 dark:text-white noise-overlay pt-24 font-sans flex flex-col justify-between">
+    <div className="min-h-screen bg-white dark:bg-[#030712] transition-colors duration-300 text-slate-900 dark:text-white noise-overlay pt-24 font-sans flex flex-col justify-between">
       <Navbar />
       <main className="max-w-4xl mx-auto px-6 py-12 md:py-20 space-y-16 flex-1">
         {/* Header */}
         <div className="space-y-6 text-center">
-          <div className="inline-flex p-4 bg-purple-500/10 border border-purple-500/20 rounded-2xl text-purple-400 mb-4 shadow-[0_0_30px_rgba(59,130,246,0.15)] relative overflow-hidden">
+          <div className="inline-flex p-4 bg-purple-500/10 border border-purple-500/20 rounded-2xl text-purple-600 dark:text-purple-400 mb-4 shadow-[0_0_30px_rgba(59,130,246,0.15)] relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/10 to-transparent"></div>
             <Compass className="w-10 h-10 relative z-10" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight font-display bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-white/60">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight font-display bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-slate-800 to-slate-500 dark:from-white dark:via-white dark:to-white/60">
             Ultimate Career Guide
           </h1>
           <p className="text-lg text-slate-500 dark:text-white/60 max-w-xl mx-auto font-light leading-relaxed">
@@ -62,26 +62,26 @@ function CareerGuidePage() {
             <div 
               key={i} 
               onClick={() => setExpandedIndex(expandedIndex === i ? null : i)}
-              className="glass-card p-6 md:p-8 flex flex-col group hover:bg-white/[0.02] transition-colors cursor-pointer rounded-2xl border border-white/5"
+              className="glass-card p-6 md:p-8 flex flex-col group hover:bg-slate-50 dark:hover:bg-white/[0.02] transition-colors cursor-pointer rounded-2xl border border-slate-200 dark:border-white/5 bg-white/50 dark:bg-transparent shadow-sm"
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-6">
-                  <div className="w-14 h-14 rounded-2xl bg-purple-500/10 flex items-center justify-center text-purple-400 shrink-0 border border-purple-500/20 transition-transform">
+                  <div className="w-14 h-14 rounded-2xl bg-purple-500/10 flex items-center justify-center text-purple-600 dark:text-purple-400 shrink-0 border border-purple-500/20 transition-transform">
                     <chapter.icon className="w-6 h-6" />
                   </div>
                   <div className="space-y-1">
-                    <h3 className="text-lg md:text-xl font-bold text-white">{chapter.title}</h3>
-                    <p className="text-sm text-white/50">{chapter.desc}</p>
+                    <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white">{chapter.title}</h3>
+                    <p className="text-sm text-slate-600 dark:text-white/50">{chapter.desc}</p>
                   </div>
                 </div>
-                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/30 group-hover:text-white group-hover:bg-purple-500/20 transition-all shrink-0 ml-4">
+                <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-white/5 flex items-center justify-center text-slate-400 dark:text-white/30 group-hover:text-slate-900 dark:text-white group-hover:bg-purple-500/20 transition-all shrink-0 ml-4">
                   <ChevronDown className={`w-5 h-5 transition-transform ${expandedIndex === i ? 'rotate-180' : ''}`} />
                 </div>
               </div>
               
               {/* Expandable Content */}
               {expandedIndex === i && (
-                <div className="mt-6 pt-6 border-t border-white/10 text-slate-300 font-light leading-relaxed animate-in fade-in slide-in-from-top-4 duration-300">
+                <div className="mt-6 pt-6 border-t border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 font-light leading-relaxed animate-in fade-in slide-in-from-top-4 duration-300">
                   {chapter.content}
                 </div>
               )}
@@ -92,9 +92,9 @@ function CareerGuidePage() {
         {/* CTA */}
         <div className="glass-card p-8 text-center rounded-3xl relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-purple-600/20 mix-blend-overlay"></div>
-          <h2 className="text-2xl font-bold text-white mb-4 relative z-10">Want personalized guidance?</h2>
-          <p className="text-white/60 mb-6 relative z-10 max-w-lg mx-auto">Upload your resume to get a custom roadmap tailored specifically to your background and goals.</p>
-          <Link to="/auth" className="inline-block px-6 py-3 bg-white text-black font-semibold rounded-full relative z-10 hover:scale-105 transition-transform">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 relative z-10">Want personalized guidance?</h2>
+          <p className="text-slate-500 dark:text-white/60 mb-6 relative z-10 max-w-lg mx-auto">Upload your resume to get a custom roadmap tailored specifically to your background and goals.</p>
+          <Link to="/auth" className="inline-block px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-black font-semibold rounded-full relative z-10 hover:scale-105 transition-transform">
             Analyze My Resume
           </Link>
         </div>

@@ -16,16 +16,16 @@ function ResumeTemplatesPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#030712] text-slate-900 dark:text-white noise-overlay pt-24 font-sans flex flex-col justify-between">
+    <div className="min-h-screen bg-white dark:bg-[#030712] transition-colors duration-300 text-slate-900 dark:text-white noise-overlay pt-24 font-sans flex flex-col justify-between">
       <Navbar />
       <main className="max-w-6xl mx-auto px-6 py-12 md:py-20 space-y-16 flex-1">
         {/* Header */}
         <div className="space-y-6 text-center max-w-2xl mx-auto">
-          <div className="inline-flex p-4 bg-purple-500/10 border border-purple-500/20 rounded-2xl text-purple-400 mb-4 shadow-[0_0_30px_rgba(59,130,246,0.15)] relative overflow-hidden">
+          <div className="inline-flex p-4 bg-purple-500/10 border border-purple-500/20 rounded-2xl text-purple-600 dark:text-purple-400 mb-4 shadow-[0_0_30px_rgba(59,130,246,0.15)] relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/10 to-transparent"></div>
             <LayoutTemplate className="w-10 h-10 relative z-10" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight font-display bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-white/60">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight font-display bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-slate-800 to-slate-500 dark:from-white dark:via-white dark:to-white/60">
             ATS-Friendly Templates
           </h1>
           <p className="text-lg text-slate-500 dark:text-white/60 font-light leading-relaxed">
@@ -37,27 +37,27 @@ function ResumeTemplatesPage() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {templates.map((tpl, i) => (
             <div key={i} className="glass-card p-4 flex flex-col gap-4 group">
-              <div className={`h-64 rounded-xl bg-gradient-to-br ${tpl.color} relative overflow-hidden border border-white/10 p-4 flex flex-col`}>
+              <div className={`h-64 rounded-xl bg-gradient-to-br ${tpl.color} relative overflow-hidden border border-slate-200 dark:border-white/10 p-4 flex flex-col`}>
                  {/* Fake Resume Layout */}
                  <div className="w-1/2 h-3 bg-white/20 rounded mb-4"></div>
                  <div className="w-full h-1 bg-white/10 rounded mb-2"></div>
                  <div className="w-3/4 h-1 bg-white/10 rounded mb-6"></div>
                  <div className="space-y-2 mt-auto">
-                   <div className="w-full h-8 bg-white/5 rounded"></div>
-                   <div className="w-full h-8 bg-white/5 rounded"></div>
+                   <div className="w-full h-8 bg-slate-100 dark:bg-white/5 rounded"></div>
+                   <div className="w-full h-8 bg-slate-100 dark:bg-white/5 rounded"></div>
                  </div>
                  
-                 <div className="absolute top-3 right-3 px-2 py-1 bg-black/40 backdrop-blur rounded text-[10px] font-bold text-white/80 border border-white/10 uppercase">
+                 <div className="absolute top-3 right-3 px-2 py-1 bg-black/40 backdrop-blur rounded text-[10px] font-bold text-slate-700 dark:text-white/80 border border-slate-200 dark:border-white/10 uppercase">
                    {tpl.popularity}
                  </div>
               </div>
               
               <div className="space-y-1 px-2">
-                <h3 className="font-bold text-white text-sm">{tpl.name}</h3>
-                <p className="text-xs text-white/50">{tpl.role}</p>
+                <h3 className="font-bold text-slate-900 dark:text-white text-sm">{tpl.name}</h3>
+                <p className="text-xs text-slate-600 dark:text-white/50">{tpl.role}</p>
               </div>
               
-              <button className="w-full py-2.5 rounded-lg bg-white/5 hover:bg-purple-500/20 hover:text-purple-400 border border-white/10 hover:border-purple-500/30 transition-all flex items-center justify-center gap-2 text-sm font-medium text-white/80 mt-auto">
+              <button className="w-full py-2.5 rounded-lg bg-slate-100 dark:bg-white/5 hover:bg-purple-500/20 hover:text-purple-600 dark:text-purple-400 border border-slate-200 dark:border-white/10 hover:border-purple-500/30 transition-all flex items-center justify-center gap-2 text-sm font-medium text-slate-700 dark:text-white/80 mt-auto">
                 <Download className="w-4 h-4" /> Download DOCX
               </button>
             </div>
@@ -70,8 +70,8 @@ function ResumeTemplatesPage() {
             <FileCheck className="w-6 h-6" />
           </div>
           <div>
-            <h4 className="font-bold text-white">100% ATS Optimized</h4>
-            <p className="text-sm text-white/60">Our templates are built without complex tables or text boxes that confuse parsers.</p>
+            <h4 className="font-bold text-slate-900 dark:text-white">100% ATS Optimized</h4>
+            <p className="text-sm text-slate-500 dark:text-white/60">Our templates are built without complex tables or text boxes that confuse parsers.</p>
           </div>
         </div>
       </main>

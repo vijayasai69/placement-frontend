@@ -9,16 +9,16 @@ export const Route = createFileRoute("/terms")({
 
 function TermsPage() {
   return (
-    <div className="min-h-screen bg-[#030712] text-slate-900 dark:text-white noise-overlay pt-24 font-sans flex flex-col justify-between">
+    <div className="min-h-screen bg-white dark:bg-[#030712] transition-colors duration-300 text-slate-900 dark:text-white noise-overlay pt-24 font-sans flex flex-col justify-between">
       <Navbar />
 
       <main className="max-w-4xl mx-auto px-6 py-12 md:py-20 space-y-12">
         {/* Header */}
         <div className="space-y-4 text-center">
-          <div className="inline-flex p-3 bg-purple-500/10 border border-purple-500/20 rounded-2xl text-purple-400">
+          <div className="inline-flex p-3 bg-purple-500/10 border border-purple-500/20 rounded-2xl text-purple-600 dark:text-purple-400">
             <Scale className="w-8 h-8" />
           </div>
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tight font-display bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-white/60">
+          <h1 className="text-3xl md:text-5xl font-bold tracking-tight font-display bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-slate-800 to-slate-500 dark:from-white dark:via-white dark:to-white/60">
             Terms of Service
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-white/50 max-w-xl mx-auto font-light leading-relaxed">
@@ -32,7 +32,7 @@ function TermsPage() {
           {/* Section 1 */}
           <div className="space-y-4">
             <h2 className="text-lg font-bold text-slate-900 dark:text-white font-display flex items-center gap-3">
-              <Sparkles className="w-5 h-5 text-purple-400 shrink-0" />
+              <Sparkles className="w-5 h-5 text-purple-600 dark:text-purple-400 shrink-0" />
               <span>1. Agreement to Terms</span>
             </h2>
             <p>
@@ -43,7 +43,7 @@ function TermsPage() {
           {/* Section 2 */}
           <div className="space-y-4">
             <h2 className="text-lg font-bold text-slate-900 dark:text-white font-display flex items-center gap-3">
-              <Award className="w-5 h-5 text-purple-400 shrink-0" />
+              <Award className="w-5 h-5 text-purple-600 dark:text-purple-400 shrink-0" />
               <span>2. Platform Scope & AI Recommendations</span>
             </h2>
             <p>
@@ -58,7 +58,7 @@ function TermsPage() {
           {/* Section 3 */}
           <div className="space-y-4">
             <h2 className="text-lg font-bold text-slate-900 dark:text-white font-display flex items-center gap-3">
-              <FileWarning className="w-5 h-5 text-purple-400 shrink-0" />
+              <FileWarning className="w-5 h-5 text-purple-600 dark:text-purple-400 shrink-0" />
               <span>3. Resume Upload & Content Policy</span>
             </h2>
             <p>
@@ -74,7 +74,7 @@ function TermsPage() {
           {/* Section 4 */}
           <div className="space-y-4">
             <h2 className="text-lg font-bold text-slate-900 dark:text-white font-display flex items-center gap-3">
-              <ShieldAlert className="w-5 h-5 text-purple-400 shrink-0" />
+              <ShieldAlert className="w-5 h-5 text-purple-600 dark:text-purple-400 shrink-0" />
               <span>4. Account and Session Security</span>
             </h2>
             <p>
@@ -85,7 +85,7 @@ function TermsPage() {
           {/* Section 5 */}
           <div className="space-y-4">
             <h2 className="text-lg font-bold text-slate-900 dark:text-white font-display flex items-center gap-3">
-              <Scale className="w-5 h-5 text-purple-400 shrink-0" />
+              <Scale className="w-5 h-5 text-purple-600 dark:text-purple-400 shrink-0" />
               <span>5. Limitation of Liability</span>
             </h2>
             <p>
