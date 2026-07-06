@@ -39,7 +39,7 @@ export function AppLayout({ children }: AppLayoutProps) {
       .catch((err) => console.error("Logout request failed:", err))
       .finally(() => {
         clearUser();
-        window.location.href = "/login";
+        window.location.href = "/auth";
       });
   };
 
