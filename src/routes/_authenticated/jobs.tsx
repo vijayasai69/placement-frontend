@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Search, Filter, Briefcase, ArrowRight, Loader2, X, CheckCircle2, AlertCircle, Bot } from "lucide-react";
+import { Search, Filter, Briefcase, ArrowRight, X, CheckCircle2, AlertCircle, Bot } from "lucide-react";
 import { getRecommendations } from "@/features/recommendations/services/recommendation-service";
+import { GlobalLoader } from "@/components/ui/GlobalLoader";
 import { motion, AnimatePresence } from "framer-motion";
 import { useActiveProfile } from "@/store/useActiveProfile";
 
@@ -121,9 +122,7 @@ function JobsPage() {
       </div>
 
       {loading ? (
-        <div className="flex justify-center items-center min-h-[300px]">
-          <Loader2 className="h-8 w-8 text-blue-500 animate-spin" />
-        </div>
+        <GlobalLoader singleText="Fetching relevant jobs..." />
       ) : !activeProfileId ? (
         <div className="text-center py-20 border border-dashed border-slate-200 dark:border-white/10 rounded-2xl">
           <Briefcase className="h-10 w-10 text-slate-300 dark:text-white/20 mx-auto mb-4" />

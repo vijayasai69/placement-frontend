@@ -2,7 +2,8 @@ import { useState, useCallback, useEffect } from "react";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useDropzone } from "react-dropzone";
 import { motion, AnimatePresence } from "framer-motion";
-import { Loader2, UploadCloud } from "lucide-react";
+import { UploadCloud } from "lucide-react";
+import { GlobalLoader } from "@/components/ui/GlobalLoader";
 import { cn } from "@/lib/utils";
 import { uploadResume, getResumeHistory, downloadResumeProfile } from "@/features/resume/services/resume-service";
 import { useActiveProfile } from "@/store/useActiveProfile";
@@ -18,7 +19,7 @@ export function ResumePage({ defaultStep = "idle" }: { defaultStep?: UploadStep 
   const navigate = useNavigate();
   const { setActiveProfileId } = useActiveProfile();
   const [step, setStep] = useState<UploadStep>(defaultStep);
-  const [fileName, setFileName] = useState<string>("");
+
   const [startTime, setStartTime] = useState<number | null>(null);
   const [elapsedMs, setElapsedMs] = useState<number>(0);
 
@@ -35,7 +36,6 @@ export function ResumePage({ defaultStep = "idle" }: { defaultStep?: UploadStep 
   const onDrop = useCallback((accepted: File[]) => {
     if (accepted[0]) {
       const selectedFile = accepted[0];
-      setFileName(selectedFile.name);
       setStep("uploading");
       setStartTime(Date.now());
       setElapsedMs(0);
@@ -155,17 +155,7 @@ export function ResumePage({ defaultStep = "idle" }: { defaultStep?: UploadStep 
             className="max-w-md mx-auto py-24 text-center space-y-6"
           >
             <div className="relative inline-flex items-center justify-center">
-              <Loader2 className="h-12 w-12 text-blue-500 animate-spin" />
-              <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-xl animate-pulse" />
-            </div>
-            
-            <div className="space-y-2">
-              <p className="text-lg font-bold text-slate-900 dark:text-white font-display uppercase tracking-wide">
-                Uploading & Analyzing Document...
-              </p>
-              <p className="text-xs text-slate-400 dark:text-white/40 truncate max-w-xs mx-auto">
-                File: {fileName}
-              </p>
+              <GlobalLoader singleText="Uploading & Analyzing Document..." />
               {elapsedMs > 0 && (
                 <p className="text-xs font-mono text-blue-400 pt-1">
                   Time elapsed: {(elapsedMs / 1000).toFixed(1)}s

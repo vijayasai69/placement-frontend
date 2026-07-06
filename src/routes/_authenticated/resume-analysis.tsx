@@ -4,6 +4,7 @@ import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import {
   FileText, CheckCircle2, AlertCircle, Loader2, UploadCloud, GitCompare, Trash2, Lightbulb, CheckSquare
 } from "lucide-react";
+import { GlobalLoader } from "@/components/ui/GlobalLoader";
 import { getResumeProfile, getResumeHistory, resetUserData } from "@/features/resume/services/resume-service";
 import { useActiveProfile } from "@/store/useActiveProfile";
 
@@ -136,11 +137,7 @@ function ResumeAnalysisPage() {
   };
 
   if (loading || isDeleting) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <Loader2 className="h-8 w-8 text-blue-500 animate-spin" />
-      </div>
-    );
+    return <GlobalLoader singleText="Loading resume analysis..." />;
   }
 
   // No resume uploaded yet — show a prompt to upload

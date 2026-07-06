@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { FileText, Loader2, ArrowLeft, TrendingUp, TrendingDown, Minus, CheckCircle, Trash2 } from "lucide-react";
+import { FileText, ArrowLeft, TrendingUp, TrendingDown, Minus, CheckCircle, Trash2 } from "lucide-react";
+import { GlobalLoader } from "@/components/ui/GlobalLoader";
 import { getResumeHistory, deleteResumeProfile } from "@/features/resume/services/resume-service";
 import { cn } from "@/lib/utils";
 import { useActiveProfile } from "@/store/useActiveProfile";
@@ -43,11 +44,7 @@ function ResumeComparisonPage() {
   };
 
   if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <Loader2 className="h-8 w-8 text-blue-500 animate-spin" />
-      </div>
-    );
+    return <GlobalLoader singleText="Loading resume history..." />;
   }
 
   if (history.length < 2) {

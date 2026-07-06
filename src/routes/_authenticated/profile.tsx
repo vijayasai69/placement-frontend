@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Edit3, Loader2, Save, X, Mail, Phone, MapPin, CheckCircle2, XCircle, Brain, Sparkles, Code2, FileText, Trophy, Building2, Network, Cloud, Settings, Rocket, GraduationCap, Calendar, Trash2 } from "lucide-react";
+import { GlobalLoader } from "@/components/ui/GlobalLoader";
 import { useEffect, useState } from "react";
 import { getProfile, updateProfile } from "@/features/profile/services/profile-service";
 import { getResumeProfile } from "@/features/resume/services/resume-service";
@@ -143,11 +144,7 @@ function ProfilePage() {
   };
 
   if (loading) {
-    return (
-      <div className="p-12 flex justify-center items-center min-h-[500px]">
-        <Loader2 className="h-8 w-8 text-blue-500 animate-spin" />
-      </div>
-    );
+    return <GlobalLoader singleText="Loading profile..." />;
   }
 
   const displayName = profile?.name || user?.name || "User";

@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { ArrowRight, ShieldAlert, BookOpen, Loader2, X, Sparkles, Bot, CheckCircle2, Award, ExternalLink, Layout, Server, Settings, Code, Cloud, Network } from "lucide-react";
+import { ArrowRight, ShieldAlert, BookOpen, X, Sparkles, Bot, Layout, Server, Settings, Code, Cloud, Network, CheckCircle2, ExternalLink, Award } from "lucide-react";
 import { getSkillGaps } from "@/features/recommendations/services/recommendation-service";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useActiveProfile } from "@/store/useActiveProfile";
+import { GlobalLoader } from "@/components/ui/GlobalLoader";
 
 // ==========================================
 // SkillIcon Component
@@ -288,10 +289,7 @@ function SkillGapPage() {
       </div>
 
       {loading ? (
-        <div className="flex flex-col justify-center items-center min-h-[400px] space-y-4">
-          <Loader2 className="h-10 w-10 text-blue-500 animate-spin" />
-          <span className="text-xs text-slate-500 dark:text-white/50 tracking-wider">Analyzing profile skill gaps...</span>
-        </div>
+        <GlobalLoader singleText="Analyzing skill gaps..." />
       ) : error === "profile_missing" ? (
         <div className="text-center py-20 border border-dashed border-slate-200 dark:border-white/10 rounded-2xl max-w-2xl mx-auto space-y-6 bg-[#080d1a]/20">
           <ShieldAlert className="h-12 w-12 text-blue-400 mx-auto" />

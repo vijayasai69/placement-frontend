@@ -5,7 +5,7 @@ import { useAuthStore } from "@/features/authentication/store/auth-store";
 import { getSession } from "@/features/authentication/services/auth-service";
 import { getResumeHistory } from "@/features/resume/services/resume-service";
 import { useActiveProfile } from "@/store/useActiveProfile";
-import { Loader2 } from "lucide-react";
+import { GlobalLoader } from "@/components/ui/GlobalLoader";
 
 export const Route = createFileRoute("/_authenticated")({
   component: AuthenticatedLayout,
@@ -50,16 +50,7 @@ function AuthenticatedLayout() {
   }, []);
 
   if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--bg-primary)" }}>
-        <div className="text-center space-y-4">
-          <Loader2 className="h-8 w-8 animate-spin mx-auto" style={{ color: "var(--accent-blue)" }} />
-          <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: "var(--text-muted)" }}>
-            Syncing Session Matrix...
-          </p>
-        </div>
-      </div>
-    );
+    return <GlobalLoader fullScreen={true} singleText="Syncing Session Matrix..." />;
   }
 
   return (

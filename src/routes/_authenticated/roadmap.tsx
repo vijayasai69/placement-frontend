@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CheckCircle2, ArrowRight, Star, Loader2, Code, Map, Sparkles, X } from "lucide-react";
+import { CheckCircle2, ArrowRight, Star, Code, Map, Sparkles, X, Loader2 } from "lucide-react";
+import { GlobalLoader } from "@/components/ui/GlobalLoader";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { api } from "@/services/api";
 import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
@@ -99,12 +100,7 @@ function RoadmapPage() {
 
       {/* Loading State */}
       {isLoading && (
-        <div className="flex flex-col items-center justify-center py-32 space-y-4">
-          <Loader2 className="w-8 h-8 text-violet-500 animate-spin" />
-          <p className="text-sm text-slate-500 dark:text-white/60 animate-pulse">
-            Analyzing your profile & generating your personalized roadmap...
-          </p>
-        </div>
+        <GlobalLoader singleText="Generating Career Roadmap..." />
       )}
 
       {/* Error / No Profile State */}
