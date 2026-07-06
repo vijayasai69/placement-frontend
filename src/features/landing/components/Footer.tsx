@@ -5,15 +5,11 @@ import { MagneticButton } from "@/components/ui/MagneticButton";
 const footerLinks = {
   product: [
     { label: "Features", href: "#features" },
-    { label: "Pricing", href: "#pricing" },
-    { label: "Case Studies", href: "#" },
     { label: "Reviews", href: "#" },
   ],
   resources: [
-    { label: "Blog", href: "/blog" },
     { label: "Career Guide", href: "/career-guide" },
     { label: "Resume Templates", href: "/resume-templates" },
-    { label: "API Docs", href: "/api-docs" },
   ],
   company: [
     { label: "About", href: "/about" },
