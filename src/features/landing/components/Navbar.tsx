@@ -57,6 +57,14 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const targetId = link.href.replace('#', '');
+                  const element = document.getElementById(targetId);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
                 className="text-[13px] font-medium transition-all duration-200 relative group"
                 style={{ color: "var(--text-secondary)" }}
               >
@@ -145,7 +153,16 @@ export function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMobileOpen(false);
+                    const targetId = link.href.replace('#', '');
+                    const element = document.getElementById(targetId);
+                    if (element) {
+                      // Small timeout to allow the mobile drawer to close before scrolling
+                      setTimeout(() => element.scrollIntoView({ behavior: 'smooth' }), 50);
+                    }
+                  }}
                   className="px-4 py-3 rounded-xl text-sm font-medium transition-all"
                   style={{ color: "var(--text-secondary)" }}
                 >
