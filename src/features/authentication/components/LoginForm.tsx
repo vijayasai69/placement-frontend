@@ -100,6 +100,19 @@ export function LoginForm() {
         )}
       </div>
 
+      {/* Remember Me */}
+      <div className="flex items-center gap-2">
+        <input
+          id="login-remember"
+          type="checkbox"
+          className="w-4 h-4 rounded border-slate-300 dark:border-white/10 bg-slate-50 dark:bg-black/20 text-[#06B6D4] focus:ring-[#06B6D4]"
+          {...register("rememberMe")}
+        />
+        <label htmlFor="login-remember" className="text-xs font-display tracking-wide text-slate-500 dark:text-white/60 select-none cursor-pointer">
+          Keep me signed in
+        </label>
+      </div>
+
       {/* Submit */}
       <button
         type="submit"

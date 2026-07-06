@@ -11,6 +11,7 @@ export const login = async (data: LoginInput) => {
   const response = await api.post("/api/auth/sign-in/email", {
     email: data.email,
     password: data.password,
+    rememberMe: data.rememberMe || false,
   });
   // Better Auth returns { user, token, redirect } directly
   return {
