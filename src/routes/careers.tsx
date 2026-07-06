@@ -1,14 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "../features/landing/components/Navbar";
 import { Footer } from "../features/landing/components/Footer";
-import { Briefcase, MapPin, Clock, ArrowRight } from "lucide-react";
+import { Briefcase } from "lucide-react";
 
 export const Route = createFileRoute("/careers")({
   component: CareersPage,
 });
 
 function CareersPage() {
-  const jobs: any[] = [];
 
   return (
     <div className="min-h-screen bg-[#030712] text-slate-900 dark:text-white noise-overlay pt-24 font-sans flex flex-col justify-between">
@@ -42,13 +41,6 @@ function CareersPage() {
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white font-display">Open Positions</h2>
           <div className="space-y-4 text-slate-400 font-light text-center py-12 glass-card rounded-2xl">
             We are currently a small, focused team building the core product. While we don't have any full-time open positions at the moment, we are always excited to connect with AI enthusiasts and potential collaborators!
-          </div>
-        </div>
-                <button className="flex items-center gap-2 text-sm text-purple-400 font-medium group-hover:translate-x-1 transition-transform">
-                  Apply Now <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
-            ))}
           </div>
         </div>
       </main>
