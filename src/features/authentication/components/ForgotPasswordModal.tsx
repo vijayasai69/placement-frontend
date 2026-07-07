@@ -152,7 +152,7 @@ export function ForgotPasswordModal({ isOpen, onClose }: ForgotPasswordModalProp
       />
 
       {/* Modal */}
-      <div className="relative w-full max-w-md bg-[#0A0E1A] border border-slate-200 dark:border-white/10 shadow-2xl shadow-purple-500/10 overflow-hidden animate-fadeIn">
+      <div className="relative w-full max-w-md bg-white dark:bg-[#0A0E1A] border border-slate-200 dark:border-white/10 shadow-2xl shadow-purple-500/10 overflow-hidden animate-fadeIn">
         {/* Top accent line */}
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent" />
 
