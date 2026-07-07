@@ -257,7 +257,7 @@ function ResumeHistorySection() {
       transition={{ duration: 0.5, delay: 0.2 }}
       className="max-w-2xl mx-auto mt-16"
     >
-      <div className="glass-card p-8 border border-slate-200 dark:border-white/10 rounded-2xl relative overflow-hidden dark:bg-[#0c1222]">
+      <div className="glass-card p-8 border border-slate-200 dark:border-white/10 rounded-2xl relative overflow-hidden">
         <h3 className="text-xl font-display font-bold text-slate-900 dark:text-white mb-6 tracking-tight">
           Resume History
         </h3>
@@ -283,7 +283,7 @@ function ResumeHistorySection() {
                 </div>
                 
                 <div className="flex items-center gap-6">
-                  <span className={cn("px-3 py-1 rounded-full text-xs font-bold border", scoreColor, "bg-[#0b1120]")}>
+                  <span className={cn("px-3 py-1 rounded-full text-xs font-bold border dark:bg-black/20 bg-white/50", scoreColor)}>
                     ATS: {resume.atsScore}
                   </span>
                   
