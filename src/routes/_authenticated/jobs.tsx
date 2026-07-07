@@ -188,7 +188,11 @@ function JobsPage() {
                   {job.location}
                 </p>
                 {job.aiInsight && (
-                  <p className="text-[10px] text-teal-400/80 font-mono mt-2 uppercase tracking-wider">
+                  <p className={`text-[10px] font-mono mt-2 uppercase tracking-wider ${
+                    job.aiInsight.includes("High") ? "text-emerald-400/80" : 
+                    job.aiInsight.includes("Medium") ? "text-amber-400/80" : 
+                    "text-rose-400/80"
+                  }`}>
                     {job.aiInsight}
                   </p>
                 )}
