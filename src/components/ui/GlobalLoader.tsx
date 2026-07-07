@@ -70,7 +70,7 @@ export const GlobalLoader = ({
         </div>
 
         {/* Text Animation */}
-        <div className="h-8 relative w-full overflow-hidden flex justify-center items-center">
+        <div className="min-h-[4rem] relative w-full flex justify-center items-start pt-2">
           <AnimatePresence mode="wait">
             <motion.span
               key={singleText || phraseIndex}
@@ -78,7 +78,7 @@ export const GlobalLoader = ({
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -10, opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="absolute text-xs sm:text-sm font-semibold tracking-wide text-slate-600 dark:text-slate-300 text-center w-full px-2"
+              className="absolute text-xs sm:text-sm font-semibold tracking-wide text-slate-600 dark:text-slate-300 text-center w-full px-2 leading-relaxed"
             >
               {singleText || phrases[phraseIndex]}
             </motion.span>

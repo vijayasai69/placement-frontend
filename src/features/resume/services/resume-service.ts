@@ -9,7 +9,7 @@ export const uploadResume = (file: File) => {
   });
 };
 
-// TODO: Backend — GET /api/resume/status/:jobId (poll until status === "completed" or "failed")
+// Poll until status === "ANALYZED" or "FAILED"
 export const getResumeStatus = (jobId: string) =>
   api.get(`/api/resume/status/${jobId}`);
 

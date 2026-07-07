@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { UploadCloud } from "lucide-react";
 import { GlobalLoader } from "@/components/ui/GlobalLoader";
 import { cn } from "@/lib/utils";
-import { uploadResume, getResumeHistory, downloadResumeProfile } from "@/features/resume/services/resume-service";
+import { uploadResume, getResumeHistory, downloadResumeProfile, getResumeStatus } from "@/features/resume/services/resume-service";
 import { useActiveProfile } from "@/store/useActiveProfile";
 import { FileText, Download } from "lucide-react";
 
@@ -42,21 +42,43 @@ export function ResumePage({ defaultStep = "idle" }: { defaultStep?: UploadStep 
       
       uploadResume(selectedFile)
         .then((res) => {
-          if (res.data?.success) {
-            if (res.data?.profile?.id) {
-              setActiveProfileId(res.data.profile.id);
-            }
-            // Redirect directly to the analysis page
-            navigate({ to: "/resume-analysis" });
+          if (res.data?.success && res.data?.data?.id) {
+            const resumeId = res.data.data.id;
+            
+            // Start polling for status
+            const pollInterval = setInterval(() => {
+              getResumeStatus(resumeId)
+                .then((statusRes) => {
+                  if (statusRes.data?.success) {
+                    const status = statusRes.data.data.processingStatus;
+                    
+                    if (status === "ANALYZED") {
+                      clearInterval(pollInterval);
+                      if (statusRes.data?.profile?.id) {
+                        setActiveProfileId(statusRes.data.profile.id);
+                      }
+                      navigate({ to: "/resume-analysis" });
+                    } else if (status === "FAILED") {
+                      clearInterval(pollInterval);
+                      setStep("idle");
+                      alert("Failed to parse resume: The parsing agent encountered an error.");
+                    }
+                  }
+                })
+                .catch((err) => {
+                  console.error("Polling error:", err);
+                  // Optionally stop polling on network errors if repeated, but we keep trying for now
+                });
+            }, 2000);
           } else {
             setStep("idle");
-            alert("Failed to parse resume: " + (res.data?.message || "Unknown error"));
+            alert("Failed to start parsing resume: " + (res.data?.message || "Unknown error"));
           }
         })
         .catch((err) => {
           setStep("idle");
-          console.error("Failed to upload/parse resume", err);
-          const errMsg = err?.response?.data?.error?.message || err?.message || "Failed to connect to the parsing agent.";
+          console.error("Failed to upload resume", err);
+          const errMsg = err?.response?.data?.error?.message || err?.message || "Failed to connect to the server.";
           alert("Error: " + errMsg);
         });
     }
@@ -152,24 +174,27 @@ export function ResumePage({ defaultStep = "idle" }: { defaultStep?: UploadStep 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="max-w-md mx-auto py-24 text-center space-y-6"
+            className="w-full max-w-2xl mx-auto py-12 flex flex-col items-center justify-center space-y-8"
           >
-            <div className="relative inline-flex items-center justify-center">
+            <div className="w-full relative">
               <GlobalLoader singleText="Uploading & Analyzing Document..." />
-              {elapsedMs > 0 && (
-                <p className="text-xs font-mono text-blue-400 pt-1">
-                  Time elapsed: {(elapsedMs / 1000).toFixed(1)}s
-                </p>
-              )}
             </div>
 
-            <div className="w-full h-1 bg-[#0c1224] rounded-full overflow-hidden">
-              <motion.div 
-                className="h-full bg-blue-500" 
-                initial={{ width: 0 }}
-                animate={{ width: "95%" }}
-                transition={{ duration: 2.0 }}
-              />
+            <div className="w-full max-w-md space-y-4 px-6">
+              {elapsedMs > 0 && (
+                <div className="flex justify-between items-center text-xs font-mono text-blue-400">
+                  <span>Processing...</span>
+                  <span>Time elapsed: {(elapsedMs / 1000).toFixed(1)}s</span>
+                </div>
+              )}
+              <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden shadow-inner">
+                <motion.div 
+                  className="h-full bg-blue-500" 
+                  initial={{ width: 0 }}
+                  animate={{ width: "95%" }}
+                  transition={{ duration: 15.0, ease: "easeOut" }} // Match expected loading time
+                />
+              </div>
             </div>
           </motion.div>
         )}
