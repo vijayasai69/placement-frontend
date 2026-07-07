@@ -14,9 +14,7 @@ import { Route as ResumeTemplatesRouteImport } from './routes/resume-templates'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as CareerGuideRouteImport } from './routes/career-guide'
-import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AuthRouteImport } from './routes/auth'
-import { Route as ApiDocsRouteImport } from './routes/api-docs'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
 import { Route as IndexRouteImport } from './routes/index'
@@ -58,19 +56,9 @@ const CareerGuideRoute = CareerGuideRouteImport.update({
   path: '/career-guide',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AuthRoute = AuthRouteImport.update({
   id: '/auth',
   path: '/auth',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiDocsRoute = ApiDocsRouteImport.update({
-  id: '/api-docs',
-  path: '/api-docs',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -154,9 +142,7 @@ const AuthenticatedApplicationsRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/api-docs': typeof ApiDocsRoute
   '/auth': typeof AuthRoute
-  '/blog': typeof BlogRoute
   '/career-guide': typeof CareerGuideRoute
   '/careers': typeof CareersRoute
   '/privacy': typeof PrivacyRoute
@@ -178,9 +164,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/api-docs': typeof ApiDocsRoute
   '/auth': typeof AuthRoute
-  '/blog': typeof BlogRoute
   '/career-guide': typeof CareerGuideRoute
   '/careers': typeof CareersRoute
   '/privacy': typeof PrivacyRoute
@@ -204,9 +188,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteWithChildren
   '/about': typeof AboutRoute
-  '/api-docs': typeof ApiDocsRoute
   '/auth': typeof AuthRoute
-  '/blog': typeof BlogRoute
   '/career-guide': typeof CareerGuideRoute
   '/careers': typeof CareersRoute
   '/privacy': typeof PrivacyRoute
@@ -230,9 +212,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
-    | '/api-docs'
     | '/auth'
-    | '/blog'
     | '/career-guide'
     | '/careers'
     | '/privacy'
@@ -254,9 +234,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
-    | '/api-docs'
     | '/auth'
-    | '/blog'
     | '/career-guide'
     | '/careers'
     | '/privacy'
@@ -279,9 +257,7 @@ export interface FileRouteTypes {
     | '/'
     | '/_authenticated'
     | '/about'
-    | '/api-docs'
     | '/auth'
-    | '/blog'
     | '/career-guide'
     | '/careers'
     | '/privacy'
@@ -305,9 +281,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRoute: typeof AuthenticatedRouteWithChildren
   AboutRoute: typeof AboutRoute
-  ApiDocsRoute: typeof ApiDocsRoute
   AuthRoute: typeof AuthRoute
-  BlogRoute: typeof BlogRoute
   CareerGuideRoute: typeof CareerGuideRoute
   CareersRoute: typeof CareersRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -352,25 +326,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CareerGuideRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/auth': {
       id: '/auth'
       path: '/auth'
       fullPath: '/auth'
       preLoaderRoute: typeof AuthRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api-docs': {
-      id: '/api-docs'
-      path: '/api-docs'
-      fullPath: '/api-docs'
-      preLoaderRoute: typeof ApiDocsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -519,9 +479,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRoute: AuthenticatedRouteWithChildren,
   AboutRoute: AboutRoute,
-  ApiDocsRoute: ApiDocsRoute,
   AuthRoute: AuthRoute,
-  BlogRoute: BlogRoute,
   CareerGuideRoute: CareerGuideRoute,
   CareersRoute: CareersRoute,
   PrivacyRoute: PrivacyRoute,

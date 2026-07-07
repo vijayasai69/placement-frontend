@@ -193,7 +193,7 @@ export function Sidebar() {
                     {isActive && (
                       <motion.div
                         layoutId="activeIndicator"
-                        className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 rounded-r-full"
+                        className="absolute left-[3px] top-1/2 -translate-y-1/2 w-1 h-5 rounded-full"
                         style={{
                           background: "linear-gradient(to bottom, var(--accent-blue), var(--accent-purple))",
                           boxShadow: "0 0 10px var(--glow-blue)",
