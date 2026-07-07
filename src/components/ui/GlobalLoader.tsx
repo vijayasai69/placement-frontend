@@ -6,12 +6,14 @@ interface GlobalLoaderProps {
   phrases?: string[];
   singleText?: string;
   fullScreen?: boolean;
+  compact?: boolean;
 }
 
 export const GlobalLoader = ({ 
   phrases = ["Loading..."], 
   singleText,
-  fullScreen = false
+  fullScreen = false,
+  compact = false
 }: GlobalLoaderProps) => {
   const [phraseIndex, setPhraseIndex] = useState(0);
 
@@ -25,7 +27,7 @@ export const GlobalLoader = ({
   }, [singleText, phrases]);
 
   return (
-    <div className={`flex items-center justify-center w-full px-4 ${fullScreen ? "h-screen bg-[var(--bg-primary)]" : "h-[60vh] min-h-[300px]"}`}>
+    <div className={`flex items-center justify-center w-full px-4 ${fullScreen ? "h-screen bg-[var(--bg-primary)]" : compact ? "py-8" : "h-[60vh] min-h-[300px]"}`}>
       <div className="flex flex-col items-center justify-center gap-6 max-w-sm w-full">
         {/* Animated AI Core */}
         <div className="relative w-24 h-24 sm:w-32 sm:h-32 flex items-center justify-center shrink-0">

@@ -177,16 +177,13 @@ export function ResumePage({ defaultStep = "idle" }: { defaultStep?: UploadStep 
             className="w-full max-w-2xl mx-auto py-12 flex flex-col items-center justify-center space-y-8"
           >
             <div className="w-full relative">
-              <GlobalLoader singleText="Uploading & Analyzing Document..." />
+              <GlobalLoader singleText="Uploading & Analyzing Document..." compact={true} />
             </div>
 
-            <div className="w-full max-w-md space-y-4 px-6">
-              {elapsedMs > 0 && (
-                <div className="flex justify-between items-center text-xs font-mono text-blue-400">
-                  <span>Processing...</span>
-                  <span>Time elapsed: {(elapsedMs / 1000).toFixed(1)}s</span>
-                </div>
-              )}
+            <div className="w-full max-w-md px-6">
+              <div className="flex justify-between items-center text-xs font-mono text-blue-400 mb-2">
+                <span>Processing...</span>
+              </div>
               <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden shadow-inner">
                 <motion.div 
                   className="h-full bg-blue-500" 
